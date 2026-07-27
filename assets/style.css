@@ -1,0 +1,351 @@
+/* ============================================================
+   Пам'ять — меморіальні сторінки полеглих воїнів
+   Спільні стилі. Мобільний-перший дизайн (доступ через QR).
+   ============================================================ */
+
+:root {
+  --bg:        #0c0d10;
+  --bg-2:      #101216;
+  --surface:   #14161c;
+  --surface-2: #191c23;
+  --text:      #eceae4;
+  --muted:     #9b988f;
+  --faint:     #6d6a63;
+  --gold:      #c9a86a;
+  --gold-dim:  #a98f56;
+  --line:      rgba(255, 255, 255, 0.08);
+  --line-2:    rgba(255, 255, 255, 0.14);
+  --blue:      #2f5da3;
+  --yellow:    #e0b73f;
+  --serif: "Lora", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --maxw: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,168,106,0.06), transparent 60%),
+    radial-gradient(900px 500px at 50% 110%, rgba(47,93,163,0.05), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Тонка синьо-жовта стрічка згори */
+.ribbon {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue) 50%, var(--yellow) 50%, var(--yellow) 100%);
+  opacity: 0.85;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: #e2c690; }
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 54px 22px 30px;
+}
+
+.portrait {
+  width: 208px;
+  height: 258px;
+  margin: 0 auto 26px;
+  position: relative;
+  border-radius: 6px;
+  padding: 7px;
+  background: linear-gradient(160deg, rgba(201,168,106,0.55), rgba(201,168,106,0.12) 45%, rgba(255,255,255,0.04));
+  box-shadow: 0 22px 60px rgba(0,0,0,0.55), 0 2px 0 rgba(255,255,255,0.03) inset;
+}
+.portrait img,
+.portrait .placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+  filter: grayscale(18%) contrast(1.02);
+}
+.portrait .placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 35%, #23262e, #14161c);
+  color: var(--gold-dim);
+}
+.portrait .placeholder svg { width: 84px; height: 84px; opacity: 0.55; }
+
+/* маленький хрест над іменем */
+.mark {
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(30px, 8vw, 44px);
+  line-height: 1.12;
+  margin: 0 0 6px;
+  letter-spacing: 0.3px;
+  color: #f4f1ea;
+}
+
+.rank {
+  font-size: 14px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-weight: 400;
+}
+
+.dates {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+.dates .sep {
+  width: 34px;
+  height: 1px;
+  background: var(--gold-dim);
+  opacity: 0.7;
+}
+
+/* ---------- Ornamental divider ---------- */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 40px auto;
+  color: var(--faint);
+}
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-2), transparent);
+}
+.divider .diamond {
+  width: 7px; height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold-dim);
+  opacity: 0.8;
+  flex: 0 0 auto;
+}
+
+/* ---------- Sections ---------- */
+section { margin: 8px 0 12px; }
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 22px;
+}
+
+.bio p {
+  margin: 0 0 20px;
+  color: #d8d5cd;
+}
+.bio p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 8px 12px 0 0;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--line-2) 12%, var(--line-2) 88%, transparent);
+}
+.timeline li {
+  position: relative;
+  padding: 0 0 26px 34px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 3px; top: 8px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--gold-dim);
+}
+.timeline .when {
+  display: block;
+  font-family: var(--serif);
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+.timeline .what {
+  color: #cfccc4;
+  font-size: 16px;
+}
+
+/* ---------- Awards ---------- */
+.awards {
+  display: grid;
+  gap: 14px;
+}
+.award {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.award .medal {
+  flex: 0 0 auto;
+  width: 34px; height: 34px;
+  color: var(--gold);
+}
+.award h3 {
+  margin: 2px 0 4px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #f2efe8;
+}
+.award p { margin: 0; font-size: 15px; color: var(--muted); }
+
+/* ---------- Closing quote ---------- */
+.quote {
+  text-align: center;
+  margin: 46px auto 10px;
+  max-width: 520px;
+}
+.quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #e9e5dc;
+  margin: 0;
+}
+.candle {
+  margin: 34px auto 0;
+  width: 44px;
+  text-align: center;
+}
+.flame {
+  transform-origin: 50% 100%;
+  animation: flicker 2.6s infinite ease-in-out;
+}
+@keyframes flicker {
+  0%, 100% { transform: scale(1) translateX(0); opacity: 1; }
+  25% { transform: scale(1.05, 0.96) translateX(0.4px); opacity: 0.92; }
+  50% { transform: scale(0.97, 1.04) translateX(-0.4px); opacity: 1; }
+  75% { transform: scale(1.03, 0.98) translateX(0.3px); opacity: 0.95; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flame { animation: none; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 40px 22px 56px;
+  color: var(--faint);
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+footer .back { display: inline-block; margin-top: 10px; }
+
+/* ---------- Index (список) ---------- */
+.index-head {
+  text-align: center;
+  padding: 60px 22px 20px;
+}
+.index-head h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(28px, 7vw, 40px);
+  margin: 12px 0 8px;
+  color: #f4f1ea;
+}
+.index-head p { color: var(--muted); margin: 0; }
+
+.roll {
+  display: grid;
+  gap: 16px;
+  padding: 20px 0 40px;
+}
+.card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px;
+  background: linear-gradient(180deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.card:hover { border-color: rgba(201,168,106,0.4); transform: translateY(-2px); }
+.card img, .card .ph {
+  width: 66px; height: 82px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex: 0 0 auto;
+  filter: grayscale(18%);
+  background: #1b1e25;
+}
+.card .info h2 {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin: 0 0 4px;
+  color: #f2efe8;
+  font-weight: 600;
+}
+.card .info .d { color: var(--gold); font-size: 14px; font-family: var(--serif); }
+
+@media (min-width: 600px) {
+  body { font-size: 18px; }
+}
