@@ -322,6 +322,20 @@ section { margin: 8px 0 12px; }
 .award p { margin: 0; font-size: 15px; color: var(--muted); }
 
 /* ============================================================
+   Pending (сторінка без біографії)
+   ============================================================ */
+.pending { text-align: center; max-width: 520px; margin: 12px auto 4px; }
+.pending .lead {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.5;
+  color: #e9e5dc;
+  margin: 0 0 16px;
+}
+.pending p { color: var(--muted); margin: 0 0 12px; font-size: 16px; }
+
+/* ============================================================
    Closing quote + candle
    ============================================================ */
 .quote { text-align: center; margin: 46px auto 10px; max-width: 520px; }
